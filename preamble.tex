@@ -1,0 +1,97 @@
+% Layout, characters, page margins, pictures handling.
+\usepackage{fontenc}                                % Fonts
+\usepackage{graphicx, float}                        % Images
+\usepackage{geometry}    % Page layout, margins etc
+% \usepackage{parskip}                                % To handle paragraph spacing, indentation etc. Not for beamers.
+\usepackage{colonequals}
+
+% Math tools
+\usepackage{amsmath, amsthm, amsfonts, amssymb}     % A lot of symbols
+
+% References and hyperlinks both in the document and to the web. Needs two compilations in a row.
+\usepackage{hyperref}
+\usepackage{bookmark}
+
+% Commutative diagrams
+\usepackage{tikz, tikz-cd}
+\usetikzlibrary{calc} % This allows for slightly moving nodes in a tikzpicture, by using ($(m-1-1.east)+(offsetX,offsetY)$) for example.
+\usetikzlibrary{arrows, matrix} % I guess
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography management. Compile with biber.
+\usepackage[backend=biber, datamodel=mrnumber, sortcites]{biblatex}
+\addbibresource{bibliography.bib}
+\renewcommand*{\bibfont}{\tiny}
+
+
+% \usepackage{gitinfo2}
+
+% \newcommand\gitfootnote[1]{% yoinked from Pieter's repo
+%   \begin{NoHyper}
+%   \renewcommand\thefootnote{}\footnote{#1}%
+%   \addtocounter{footnote}{-1}%
+%   \end{NoHyper}
+% }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theorems are numbered within sections using a common counter. Do away with ambiguous numbering schemes and assign A number to A thing.
+% \theoremstyle{plain}
+% \newtheorem{theorem}{Theorem}[section]
+% \newtheorem{proposition}[theorem]{Proposition}
+% \newtheorem{lemma}[theorem]{Lemma}
+% \newtheorem{corollary}[theorem]{Corollary}
+% \newtheorem{claim}[theorem]{Claim}
+
+% \theoremstyle{remark}
+% \newtheorem{remark}[theorem]{Remark}
+
+% \theoremstyle{definition}
+% \newtheorem{definition}[theorem]{Definition}
+% \newtheorem{example}[theorem]{Example}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\iif}{\ensuremath{\Leftrightarrow}}              % If and only if
+
+\renewcommand*{\to}[1][]{\overset{#1}{\rightarrow}} % Arrow with optional label. Use as A \to[label] B
+
+\newcommand{\dirlim}[1]{                        % Direct limit
+    \varinjlim_{\substack{#1}}
+    }
+
+\newcommand{\invlim}[1]{                        % Inverse limit
+    \varprojlim_{\substack{#1}}
+    }
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\GL}{GL}
+\newcommand{\Mat}{\mathrm{Mat}} %matrix space
+
+
+% Numbers
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+
+% Spaces
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+
+% macros
+\newcommand{\tuple}[1]{\mathbf{#1}}
+\DeclareMathOperator{\parameterspace}{R}
+\DeclareMathOperator{\modulispace}{M}
+\DeclareMathOperator{\group}{\GL_{\tuple{d}}}
+
+\newcommand{\stable}{-\mathrm{st}}
+\newcommand{\semistable}{-\mathrm{sst}}
+
+\DeclareMathOperator{\HH}{H}
