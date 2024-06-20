@@ -222,7 +222,7 @@ The universal bundles $\mathcal{U}_i$ fit into a 4-terms exact sequence on $\mod
 \end{frame}
 \begin{frame}
     \frametitle{Rigidity for quiver moduli 1/n}
-\begin{theorem}
+\begin{theorem}[Belmans--Brecan--Franzen--P.--Reineke]
 If $\tuple{d}$ is $\theta$-coprime\footnote{ plus some technical assumptions}, for any $i, j \in Q_0$ and for all $k \geq 1$ we have
 \[\HH^{k}(\modulispace^{\theta\stable}(Q, \tuple{d}),~\mathcal{U}^{\vee}_{i} \otimes \mathcal{U}_j) = 0. \]
 \end{theorem} \pause
@@ -247,7 +247,7 @@ ordered in a way such that $S_0 = X^{ss}$ and
 \[\bar{S_{\ell}} \subset \cup_{m \geq \ell} S_m.\]
 \end{theorem} \pause
 
-Each stratum $S_{\ell}$ is $G$-stable and is indexed by
+Each stratum $S_{\ell}$ is $G$-invariant and is indexed by
 a one-parameter subgroup of $G$,
 that is, by an embedded copy of
 $\lambda_{\ell} \colon \mathbb{G}_m \hookrightarrow G$. \pause
@@ -297,7 +297,7 @@ What is the relation between these two stratifications? \pause
     \begin{corollary}
         The 1-PS $\lambda$ corresponding to the HN type $\tuple{d}^*$ is given by
         \[ \lambda_i(z) = \operatorname{diag}\big( \underbrace{z^{k_1},\ldots,z^{k_1}}_{d_i^1 \text{ times}}; \underbrace{z^{k_2},\ldots,z^{k_2}}_{d_i^2 \text{ times}};\ldots; \underbrace{z^{k_s},\ldots,z^{k_s}}_{d_i^s \text{ times}} \big),\]
-        where $k_t = \frac{\theta \cdot \tuple{d}^t}{\alpha \cdot \tuple{d}^t}$.
+        where $k_t = \mu(\tuple{d}^t)$.
     \end{corollary}
     
 \end{frame}
@@ -312,17 +312,18 @@ Assume that $X^{ss}/G$ is a geometric quotient. \pause
 
 For a coherent $G$-sheaf $\mathcal{F}$ on $X$ 
 such that $\mathcal{F}|_{X^{ss}}$ descends,
-there is a standard morphism
+there is a standard morphism for all $k \geq 0$:
 \[ \HH^k(X, \mathcal{F}) \supset \HH^{k}(X, \mathcal{F})^{G} \to \HH^{k}(X^{ss} // G, \mathcal{F}_{desc}).\] \pause
-\begin{theorem}[Teleman quantization \cite{MR3327537}]
+
 On each stratum $S_{\ell}$,
-denote the set of $\lambda_{\ell}$-weights of $\mathcal{F}$
-by $W(\lambda_{\ell}, \mathcal{F})$. \pause
+denote the set of $\lambda_{\ell}$-weights of $\mathcal{F}|_{Z_\ell}$
+by $W(\lambda_{\ell}, \mathcal{F}|_{Z_\ell})$. \pause
+\begin{theorem}[Teleman quantization \cite{MR3327537}]
 
 If on each stratum $S_{\ell}$, the inequality $\max(W(\lambda_{\ell}, \mathcal{F})) < \eta_{\ell}$
 holds, then there is an isomorphism
-\[\HH^{i}(X, \mathcal{F})^{G} \to[\sim] \HH^{i}(X^{ss} // G, \mathcal{F}_{desc})\]
-for all $i \geq 0$.
+\[\HH^{k}(X, \mathcal{F})^{G} \to[\sim] \HH^{i}(X^{ss} // G, \mathcal{F}_{desc})\]
+for all $k \geq 0$.
 \end{theorem}
 
 \end{frame}
@@ -333,9 +334,7 @@ We apply Teleman quantization to the quiver moduli setup. \pause
 
 Remember: we let $\group$ act on $\parameterspace(Q, \tuple{d})$,
 we fix a stability parameter $\theta$ and a norm on $1-PS$ $\alpha$. \pause
-
-We assume that $\tuple{d}$ is $\theta$-coprime,
-so stable locus and semistable locus coincide.
+We assume that $\tuple{d}$ is $\theta$-coprime.
 
 On each stratum $S_{\tuple{d}^*}$, the group $\lambda_{\tuple{d}^*}$
 acts on $\det(\mathcal{N}_{S_{\tuple{d}^*}/\parameterspace})|_{Z_{\tuple{d}^*}}$, \pause
@@ -356,26 +355,32 @@ The weight $\eta_{\tuple{d}^*}$ of $\det(\mathcal{N}_{S_{\tuple{d}^*}/\parameter
 \begin{lemma}[Lemma 3.20 \cite{belmans2023rigidity}]
     The $\lambda_{\tuple{d}^*}$-weights of $(U^{\vee}_i \otimes {U}_j)|_{Z_{\tuple{d}^*}}$ are
     \[W(\lambda_{\tuple{d}^*}, U_i^{\vee} \otimes U_j) = \{k_m - k_n ~|~ 1 \leq m, n \leq s\}.\]
-\end{lemma}
-
+\end{lemma} \pause
+{\bf Note: } $\langle -,-\rangle$ is the so-called bilinear Euler form of a quiver.
 \end{frame}
 
 \begin{frame}
     \frametitle{Proof of rigidity - conclusion}
-Under a technical assumption (that $\tuple{d}$ is \emph{strongly amply $\theta$-stable}),
-the Teleman inequality holds on every stratum: for all $\tuple{d}^*$,
-\[\max(k_m - k_n) < \sum_{1 \leq m < n \leq s} (k_n - k_m)\langle \tuple{d}^m, \tuple{d}^n \rangle.\] \pause
+\begin{theorem}
 
-Applying Teleman quantization, we obtain that for all $i \geq 1$,
-\[ \HH^i(\modulispace^{\theta\stable}(Q, \tuple{d}), \mathcal{U}^{\vee}_i \otimes \mathcal{U}_j) = 0. \]
-This concludes the proof. \qed \pause
+    Under a technical assumption (that $\tuple{d}$ is \emph{strongly amply $\theta$-stable}),
+    the Teleman inequality holds on every stratum: for all $\tuple{d}^*$,
+    \[\max(k_m - k_n) < \sum_{1 \leq m < n \leq s} (k_n - k_m)\langle \tuple{d}^m, \tuple{d}^n \rangle.\] \pause
+\end{theorem}
+\begin{corollary}
+    
+    Applying Teleman quantization, we obtain that for all $k \geq 1$,
+    \[ \HH^k(\modulispace^{\theta\stable}(Q, \tuple{d}), \mathcal{U}^{\vee}_i \otimes \mathcal{U}_j) = 0. \]
+    This concludes the proof. \qed \pause
+\end{corollary}
 \end{frame}
 \begin{frame}
     \frametitle{Conclusions}
 \begin{itemize}
 \item Quiver moduli are a large class of examples of interesting varieties; \pause
 \item They can easily be constructed to be smooth, projective, Fano... \pause 
-\item Many hard, abstract questions are reduced to recursive, implementable problems.
+\item Many hard, abstract questions are reduced to recursive, implementable problems. \pause
+\item In fact, these are implemented :)
 \end{itemize}
 \end{frame}
 \begin{frame}
