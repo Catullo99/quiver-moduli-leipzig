@@ -32,6 +32,8 @@
 \begin{frame}
     \frametitle{Quiver representations}
 \begin{definition}
+    We work over a field $k = \bar{k}$ of characteristic $0$. \pause
+
     A \emph{quiver}~$Q$ is a finite directed graph.
 
     A \emph{representation}~$V$ of~$Q$ over~$k$ is
@@ -96,7 +98,8 @@ denoted by~$\modulispace^{\theta\stable}(Q, \tuple{d})$
 \end{lemma} \pause
 \begin{corollary}
     If $Q$ is \emph{acyclic}, $\modulispace^{\theta\semistable}(Q, \tuple{d})$ is a projective variety.
-\end{corollary}
+\end{corollary} \pause
+From now on, our quivers are acyclic.
 \end{frame}
 
 \begin{frame}
@@ -170,7 +173,9 @@ a~$\group$-action, and must satisfy the descent condition: \pause
 The dimension vector $\tuple{d}$ is \emph{$\theta$-coprime} if
 $\forall~ 0 \neq \tuple{e} \leq \tuple{d}$, $\theta \cdot \tuple{e} \neq 0$.
 \end{definition} \pause
-In particular, $\gcd(\tuple{d}) = 1$. \pause
+In particular, $\gcd(\tuple{d}) = 1$,
+and a representation $V$ is $\theta$-semistable
+if and only if it is $\theta$-stable. \pause
 
 \begin{lemma}
     The bundles $U_i$ descend if $\gcd(\tuple{d}) = 1$.
@@ -195,7 +200,7 @@ The resulting bundles on $\modulispace$ are denoted by $\mathcal{U}_i$.
 \end{frame}
 \begin{frame}
     \frametitle{The fundamental exact sequence}
-The universal bundles $U_i$ fit into a 4-terms exact sequence: \pause
+The universal bundles $\mathcal{U}_i$ fit into a 4-terms exact sequence on $\modulispace^{\theta\stable}(Q, \tuple{d})$: \pause
 \begin{equation}
 \label{equation:4-term-exact-sequence}
 0
@@ -218,19 +223,24 @@ The universal bundles $U_i$ fit into a 4-terms exact sequence: \pause
 \begin{frame}
     \frametitle{Rigidity for quiver moduli 1/n}
 \begin{theorem}
-If $\tuple{d}$ is $\theta$-coprime\footnote{Under some quite permissive technical assumptions,}, for any $i, j \in Q_0$ we have
-$\HH^{1}(\modulispace, \mathcal{U}^{\vee}_{i} \otimes \mathcal{U}_j) = 0$.
+If $\tuple{d}$ is $\theta$-coprime\footnote{ plus some technical assumptions}, for any $i, j \in Q_0$ and for all $k \geq 1$ we have
+\[\HH^{k}(\modulispace^{\theta\stable}(Q, \tuple{d}),~\mathcal{U}^{\vee}_{i} \otimes \mathcal{U}_j) = 0. \]
 \end{theorem} \pause
 \begin{corollary}
-The variety $\modulispace$ is \emph{infinitesimally rigid}.    
-\end{corollary}
+The variety $\modulispace^{\theta\stable}(Q, \tuple{d})$ is \emph{infinitesimally rigid}, i.e.,
+\[ \HH^1(\modulispace^{\theta\stable}(Q, \tuple{d}), \mathcal{T}_{\modulispace}) = 0. \]
+\end{corollary} \pause
+
+{\bf Note:} the group $\HH^1(X, \mathcal{T}_{X})$ parametrizes infinitesimal
+deformations of a projective variety $X$.
 \end{frame}
 
 \begin{frame}
     \frametitle{Proof background - GIT stratification}
+We recall a stratification result of Geometric Invariant Theory. \pause
 \begin{theorem}[Kempf--Ness, Hesselink]
-Given $G$ a reductive
-algebraic group acting on a projective variety $X$,
+Given $G$ a reductivealgebraic group
+acting on a (projective) variety $X$,
 there is a stratification of $X$
 into smooth, disjoint, locally closed subsets $S_{\ell}$,
 ordered in a way such that $S_0 = X^{ss}$ and
@@ -244,36 +254,39 @@ $\lambda_{\ell} \colon \mathbb{G}_m \hookrightarrow G$. \pause
 
 {\bf Notes} \pause
 \begin{itemize}
-    \item The fixed locus of $\lambda_i$ is denoted by $Z_i \subset S_i$. \pause
+    \item The fixed locus of $\lambda_{\ell}$ is denoted by $Z_{\ell} \subset S_{\ell}$. \pause
     %in fact there is a principal bundle structure
     %\[ S_i \times^{P(\lambda_i)} G \to Z_i.\] \pause
-    \item The group $\lambda_i$ acts on $\mathcal{N}_{S_i/X}|_{Z_i}$. \pause
-    \item Both $\lambda_i$ and $S_i$ depend on the choice of a norm on $1-PS$s.
-\end{itemize}
-
+    \item The group $\lambda_{\ell}$ acts on $\mathcal{N}_{S_{\ell}/X}|_{Z_{\ell}}$. \pause
+    \item Both $\lambda_{\ell}$ and $S_{\ell}$ depend on the choice of a norm on $1-PS$s.
+\end{itemize} \pause
+How does this apply to quiver moduli?
 \end{frame}
+
 \begin{frame}
     \frametitle{Harder--Nararasimhan stratification}
-    For quiver moduli, the choice of norm on 1-PSs is given by $\alpha \in \NN^{Q_0}_0$. \pause
+    For quiver moduli, the choice of norm on 1-PSs is given by $\alpha \in \NN^{Q_0}_0$.
+    Denote $\mu(x) \colonequals \frac{\theta \cdot x}{\alpha \cdot x}$ for any $x \in \ZZ^{Q_0}$. \pause
 
 \begin{definition}
     Given $\theta$ and $\alpha$, every representation admits a unique \emph{Harder--Narasimhan filtration},
     i.e., $ 0 = V_0 \subsetneq V_1 \dots \subsetneq V_s = V$ such that every successive quotient
     $V_i/V_{i-1}$ is semistable.
 \end{definition} \pause
-The sequence of dimension vectors $\dim(V_1), \dim(V_2) - \dim(V_1), \dots$ is
+The sequence of dimension vectors $\dim(V_1), \dim(V_2/V_1), \dots$ is
 called the \emph{HN type} of $V$, and denoted by $\tuple{d}^* = (\tuple{d}^1,\dots,\tuple{d}^s)$. \pause
 
+{\bf Fact: } for all $1 \leq t < m \leq s$, $\mu(\tuple{d}^{t}) > \mu(\tuple{d}^m)$.\pause
 \begin{theorem}[Reineke \cite{MR1974891}]
-Separating representations in $\parameterspace(Q, \tuple{d})$ gives
+Separating representations in $\parameterspace(Q, \tuple{d})$ by their HN type gives
 a stratification into smooth, disjoint, locally closed subsets $S_{\tuple{d}^*}$,
-ordered in a way such that $S_0 = X^{ss}$ and
+ordered in a way such that $S_{(\tuple{d})} = X^{ss}$ and
 \[\bar{S_{\tuple{d}^*}} \subset \cup_{\tuple{e}^* \geq \tuple{d}^*} S_{\tuple{e}^*}.\] \pause
 This is called the Harder--Narasimhan stratification.
 \end{theorem}
 \end{frame}
-\begin{frame}{Harder--Nararasimhan vs GIT}
-    
+\begin{frame}{Harder--Nararasimhan equals GIT}
+What is the relation between these two stratifications? \pause
     \begin{theorem}[Hoskins \cite{MR3261979, MR3871820}]
         For the action of $\group$ on $\parameterspace(Q, \tuple{d})$,
         ``twisted by $\theta$'', given a norm on 1-PSs $\alpha$,
@@ -300,7 +313,7 @@ Assume that $X^{ss}/G$ is a geometric quotient. \pause
 For a coherent $G$-sheaf $\mathcal{F}$ on $X$ 
 such that $\mathcal{F}|_{X^{ss}}$ descends,
 there is a standard morphism
-\[\HH^{i}(X, \mathcal{F})^{G} \to \HH^{i}(X^{ss} // G, \mathcal{F}_{desc}).\] \pause
+\[ \HH^k(X, \mathcal{F}) \supset \HH^{k}(X, \mathcal{F})^{G} \to \HH^{k}(X^{ss} // G, \mathcal{F}_{desc}).\] \pause
 \begin{theorem}[Teleman quantization \cite{MR3327537}]
 On each stratum $S_{\ell}$,
 denote the set of $\lambda_{\ell}$-weights of $\mathcal{F}$
@@ -328,8 +341,8 @@ On each stratum $S_{\tuple{d}^*}$, the group $\lambda_{\tuple{d}^*}$
 acts on $\det(\mathcal{N}_{S_{\tuple{d}^*}/\parameterspace})|_{Z_{\tuple{d}^*}}$, \pause
 and on $\mathcal{U}^{\vee}_i \otimes \mathcal{U}_j$. \pause
 
-If we can apply Teleman quantization, we win because
-\[\HH^i(\parameterspace, \mathcal{F}) = 0 ~\forall i \geq 1,\]
+If we can apply Teleman quantization, we win, because $\parameterspace(Q, \tuple{d})$ is affine, so
+\[\HH^k(\parameterspace(Q, \tuple{d}), \mathcal{F}) = 0 ~\forall k \geq 1,\]
 so we compute the weights we are interested in.
 \end{frame}
 
@@ -349,14 +362,26 @@ The weight $\eta_{\tuple{d}^*}$ of $\det(\mathcal{N}_{S_{\tuple{d}^*}/\parameter
 
 \begin{frame}
     \frametitle{Proof of rigidity - conclusion}
-Under a technical assumption (that $\tuple{d}^*$ is \emph{strongly amply $\theta$-stable}),
-we always have that
+Under a technical assumption (that $\tuple{d}$ is \emph{strongly amply $\theta$-stable}),
+the Teleman inequality holds on every stratum: for all $\tuple{d}^*$,
 \[\max(k_m - k_n) < \sum_{1 \leq m < n \leq s} (k_n - k_m)\langle \tuple{d}^m, \tuple{d}^n \rangle.\] \pause
 
 Applying Teleman quantization, we obtain that for all $i \geq 1$,
 \[ \HH^i(\modulispace^{\theta\stable}(Q, \tuple{d}), \mathcal{U}^{\vee}_i \otimes \mathcal{U}_j) = 0. \]
-
-This concludes the proof. \qed
+This concludes the proof. \qed \pause
+\end{frame}
+\begin{frame}
+    \frametitle{Conclusions}
+\begin{itemize}
+\item Quiver moduli are a large class of examples of interesting varieties; \pause
+\item They can easily be constructed to be smooth, projective, Fano... \pause 
+\item Many hard, abstract questions are reduced to recursive, implementable problems.
+\end{itemize}
+\end{frame}
+\begin{frame}
+\begin{center}
+    Thank you for your attention!
+\end{center}
 \end{frame}
 
 \begin{frame}
