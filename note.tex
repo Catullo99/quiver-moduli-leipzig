@@ -88,8 +88,8 @@ denoted by~$\modulispace^{\theta\stable}(Q, \tuple{d})$
 \begin{frame}
     \frametitle{``Holy diagram'' of quiver moduli}
     \[\begin{tikzcd}[row sep=small, column sep=small, ampersand replacement=\&]
-        \parameterspace^{\theta\stable}(Q, \tuple{d}) \arrow[r, hook, "open"] \arrow[d, "\pi"]   \& \parameterspace^{\theta\semistable}(Q) \arrow[r, hook, "open"] \arrow[d, "\pi"]                                   \& \parameterspace(Q, \tuple{d}) \arrow[d, "\pi"] \\ 
-        \modulispace^{\theta\stable}(Q, \tuple{d}) \arrow[r, hook, "open"] \arrow[d, equal]    \&  \modulispace^{\theta\semistable}(Q) \arrow[r] \arrow[d, equal]                                       \& \modulispace(Q, \tuple{d}) \arrow[d, equal] \\
+        \parameterspace^{\theta\stable}(Q, \tuple{d}) \arrow[r, hook, "open"] \arrow[d, "\pi"]   \& \parameterspace^{\theta\semistable}(Q, \tuple{d}) \arrow[r, hook, "open"] \arrow[d, "\pi"]                                   \& \parameterspace(Q, \tuple{d}) \arrow[d, "\pi"] \\ 
+        \modulispace^{\theta\stable}(Q, \tuple{d}) \arrow[r, hook, "open"] \arrow[d, equal]    \&  \modulispace^{\theta\semistable}(Q, \tuple{d}) \arrow[r] \arrow[d, equal]                                       \& \modulispace(Q, \tuple{d}) \arrow[d, equal] \\
         \parameterspace^{\theta\stable}(Q, \tuple{d}) /_\theta \GL_{\tuple{d}} \arrow[r, hook]           \&  Proj \left(\bigoplus_{n} \mathcal{O}_{\parameterspace(Q, \tuple{d})}^{n\theta}\right) \arrow[r]    \& Spec(\mathcal{O}_{\parameterspace(Q, \tuple{d})}^{\GL_{\tuple{d}}})
     \end{tikzcd} \] \pause
 \begin{lemma}[Adriaenssens--Le Bruyn \cite{MR1972892}]
@@ -103,7 +103,7 @@ From now on, our quivers are acyclic.
 \end{frame}
 
 \begin{frame}
-    \frametitle{Parallels between quiver moduli and vector bundles on curves}
+    \frametitle{Intermezzo: quiver moduli vs moduli of bundles on curves}
 There are several analogies between moduli of quiver representations and of VBACs. \pause
 
 \begin{itemize}
@@ -160,9 +160,8 @@ fitting in the diagram below? \pause
 To \emph{descend}, $U$ must have the extra structure of
 a~$\group$-action, and must satisfy the descent condition: \pause
 \begin{lemma}[Kempf, Théorème 2.3 \cite{MR0999313}]
-    Any equivariant vector bundle $E$ descends to $\modulispace$ if and only if
-    for all $x \in R^{\theta\stable}$
-    with a closed orbit $\group x$, the stabilizer of
+    Any equivariant vector bundle $E$ descends to $\modulispace^{\stable}$ if and only if
+    for all $x \in R^{\theta\stable}$ the stabilizer of
     $x$ acts trivially on the fiber $E_x$.
 \end{lemma}
 \end{frame}
@@ -175,7 +174,7 @@ $\forall~ 0 \neq \tuple{e} \leq \tuple{d}$, $\theta \cdot \tuple{e} \neq 0$.
 \end{definition} \pause
 In particular, $\gcd(\tuple{d}) = 1$,
 and a representation $V$ is $\theta$-semistable
-if and only if it is $\theta$-stable. \pause
+if and only if it is $\theta$-stable, i.e., $\parameterspace^{\theta\semistable} = \parameterspace^{\theta\stable}$. \pause
 
 \begin{lemma}
     The bundles $U_i$ descend if $\gcd(\tuple{d}) = 1$.
@@ -186,7 +185,7 @@ s.t. $\tuple{a} \cdot \tuple{d} = 1$. \pause
 
 Then, there is an action of $\group$ on
 $\parameterspace^{\theta\stable}(Q, \tuple{d}) \times U_i$ as
-\[g \cdot (x, s) \colonequals (g \cdot x, \prod_{i \in Q_0} \det(g_i)^{-a_i} g_i \cdot s). \] \pause
+\[g \cdot (x, s) \colonequals (g \cdot x, \prod_{v \in Q_0} \det(g_v)^{-a_v} g_i \cdot s). \] \pause
 
 The stabilizer of any stable representation $x$ is $\mathbb{G}_m$, which fixes $U_{i, x}$.
 \end{proof} \pause
@@ -239,7 +238,7 @@ deformations of a projective variety $X$.
     \frametitle{Proof background - GIT stratification}
 We recall a stratification result of Geometric Invariant Theory. \pause
 \begin{theorem}[Kempf--Ness, Hesselink]
-Given $G$ a reductivealgebraic group
+Given $G$ a reductive algebraic group
 acting on a (projective) variety $X$,
 there is a stratification of $X$
 into smooth, disjoint, locally closed subsets $S_{\ell}$,
@@ -257,7 +256,7 @@ $\lambda_{\ell} \colon \mathbb{G}_m \hookrightarrow G$. \pause
     \item The fixed locus of $\lambda_{\ell}$ is denoted by $Z_{\ell} \subset S_{\ell}$. \pause
     %in fact there is a principal bundle structure
     %\[ S_i \times^{P(\lambda_i)} G \to Z_i.\] \pause
-    \item The group $\lambda_{\ell}$ acts on $\mathcal{N}_{S_{\ell}/X}|_{Z_{\ell}}$. \pause
+    \item The group $\lambda_{\ell}$ acts on $\det(\mathcal{N}_{S_{\ell}/X})|_{Z_{\ell}}$. \pause
     \item Both $\lambda_{\ell}$ and $S_{\ell}$ depend on the choice of a norm on $1-PS$s.
 \end{itemize} \pause
 How does this apply to quiver moduli?
@@ -338,7 +337,7 @@ We assume that $\tuple{d}$ is $\theta$-coprime.
 
 On each stratum $S_{\tuple{d}^*}$, the group $\lambda_{\tuple{d}^*}$
 acts on $\det(\mathcal{N}_{S_{\tuple{d}^*}/\parameterspace})|_{Z_{\tuple{d}^*}}$, \pause
-and on $\mathcal{U}^{\vee}_i \otimes \mathcal{U}_j$. \pause
+and on ${U}^{\vee}_i \otimes {U}_j$. \pause
 
 If we can apply Teleman quantization, we win, because $\parameterspace(Q, \tuple{d})$ is affine, so
 \[\HH^k(\parameterspace(Q, \tuple{d}), \mathcal{F}) = 0 ~\forall k \geq 1,\]
