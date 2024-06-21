@@ -256,7 +256,7 @@ $\lambda_{\ell} \colon \mathbb{G}_m \hookrightarrow G$. \pause
     \item The fixed locus of $\lambda_{\ell}$ is denoted by $Z_{\ell} \subset S_{\ell}$. \pause
     %in fact there is a principal bundle structure
     %\[ S_i \times^{P(\lambda_i)} G \to Z_i.\] \pause
-    \item The group $\lambda_{\ell}$ acts on $\det(\mathcal{N}_{S_{\ell}/X})|_{Z_{\ell}}$. \pause
+    \item The group $\lambda_{\ell}$ acts on $\det(\mathcal{N}^{\vee}_{S_{\ell}/X})|_{Z_{\ell}}$. \pause
     \item Both $\lambda_{\ell}$ and $S_{\ell}$ depend on the choice of a norm on $1-PS$s.
 \end{itemize} \pause
 How does this apply to quiver moduli?
@@ -305,7 +305,7 @@ What is the relation between these two stratifications? \pause
 \begin{frame}
     \frametitle{Proof background - Teleman quantization}
 Let $\eta_{\ell}$ be the weight of the action of $\lambda_{\ell}$ on
-$\det(\mathcal{N}_{S_{\ell}/X})|_{Z_{\ell}}$. \pause
+$\det(\mathcal{N}^{\vee}_{S_{\ell}/X})|_{Z_{\ell}}$. \pause
 
 Assume that $X^{ss}/G$ is a geometric quotient. \pause
 
@@ -321,7 +321,7 @@ by $W(\lambda_{\ell}, \mathcal{F}|_{Z_\ell})$. \pause
 
 If on each stratum $S_{\ell}$, the inequality $\max(W(\lambda_{\ell}, \mathcal{F})) < \eta_{\ell}$
 holds, then there is an isomorphism
-\[\HH^{k}(X, \mathcal{F})^{G} \to[\sim] \HH^{i}(X^{ss} // G, \mathcal{F}_{desc})\]
+\[\HH^{k}(X, \mathcal{F})^{G} \to[\sim] \HH^{k}(X^{ss} // G, \mathcal{F}_{desc})\]
 for all $k \geq 0$.
 \end{theorem}
 
@@ -336,7 +336,7 @@ we fix a stability parameter $\theta$ and a norm on $1-PS$ $\alpha$. \pause
 We assume that $\tuple{d}$ is $\theta$-coprime.
 
 On each stratum $S_{\tuple{d}^*}$, the group $\lambda_{\tuple{d}^*}$
-acts on $\det(\mathcal{N}_{S_{\tuple{d}^*}/\parameterspace})|_{Z_{\tuple{d}^*}}$, \pause
+acts on $\det(\mathcal{N}^{\vee}_{S_{\tuple{d}^*}/\parameterspace})|_{Z_{\tuple{d}^*}}$, \pause
 and on ${U}^{\vee}_i \otimes {U}_j$. \pause
 
 If we can apply Teleman quantization, we win, because $\parameterspace(Q, \tuple{d})$ is affine, so
@@ -347,7 +347,7 @@ so we compute the weights we are interested in.
 \begin{frame}
     \frametitle{Proof of rigidity - weights}
 \begin{lemma}[Corollary 3.18 \cite{belmans2023rigidity}]
-The weight $\eta_{\tuple{d}^*}$ of $\det(\mathcal{N}_{S_{\tuple{d}^*}/\parameterspace})|_{Z_{\tuple{d}^*}}$ is
+The weight $\eta_{\tuple{d}^*}$ of $\det(\mathcal{N}^{\vee}_{S_{\tuple{d}^*}/\parameterspace})|_{Z_{\tuple{d}^*}}$ is
 \[\eta_{\tuple{d}^*} = \sum_{1 \leq m < n \leq s} (k_n - k_m)\langle \tuple{d}^m, \tuple{d}^n \rangle.\]
 \end{lemma} \pause
 
